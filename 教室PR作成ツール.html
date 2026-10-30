@@ -25,7 +25,7 @@ nav.steps.tabs>button.on:before{content:"";position:absolute;left:-1px;right:-1p
 nav.steps.tabs>button.on i{background:var(--brand)}
 .tabnav{margin-left:auto;display:flex;align-items:center;gap:6px;padding-bottom:7px}
 .tabhint{font-size:11.5px;color:#6d8aa1;margin-right:4px}
-.tbn{border:1px solid #b7d6e8;background:#fff;border-radius:8px;padding:5px 11px;font-size:12.5px;font-weight:700;color:#2f4d66}
+.tbn{white-space:nowrap;border:1px solid #b7d6e8;background:#fff;border-radius:8px;padding:5px 11px;font-size:12.5px;font-weight:700;color:#2f4d66}
 .tbn.nx{background:var(--brand);border-color:var(--brand);color:#fff}
 .tbn:disabled{opacity:.35;cursor:default}
 header .actions .btn.on{background:var(--soft);color:var(--brand);border-color:#a9dbf3}
@@ -51,7 +51,7 @@ p.lead{color:var(--muted);margin:0 0 12px}
 .fstep strong{display:block;font-size:14px}
 .fstep span{display:block;font-size:12px;color:var(--muted);margin-top:2px}
 .floop{display:flex;gap:6px;align-items:stretch;flex:5;min-width:560px;flex-wrap:wrap;border:2px dashed #8fd0f0;border-radius:12px;padding:6px;position:relative}
-.floop:before{content:"② 〜 ⑤ は何度でも行き来できます（テンプレートを変えても入力内容は引き継がれます）";position:absolute;top:-10px;left:14px;background:#fff;color:var(--brand);font-size:11.5px;font-weight:700;padding:0 6px}
+.floop:before{content:"② 〜 ＋ は何度でも行き来できます（テンプレートを変えても入力内容は引き継がれます）";position:absolute;top:-10px;left:14px;background:#fff;color:var(--brand);font-size:11.5px;font-weight:700;padding:0 6px}
 .farr{display:flex;align-items:center;justify-content:center;color:#9cc9e2;font-size:22px;font-weight:700;flex-direction:column;line-height:1}
 .farr small{font-size:10px;color:var(--brand);margin-top:3px}
 .notice{margin-top:14px;background:#f2faff;border:1px solid #a9dbf3;border-radius:12px;padding:10px 16px}
@@ -290,7 +290,7 @@ nav.steps.tabs>button.on i{background:#fff;color:#1a9fe0}
 .notice .ntitle{color:#0e3a66}
 .pbadge{background:rgba(14,58,102,.82)}
 #toast{background:#0e3a66}
-@media(max-width:1050px){.lay{grid-template-columns:1fr;height:auto}#stage{height:78vh}.lside{order:2}.lprops{order:3}}
+@media(max-width:1050px){.lay{grid-template-columns:1fr;height:auto}#stage{height:78vh;flex:none}.lside{order:2}.lprops{order:3}}
 @media(max-width:860px){.editor{grid-template-columns:1fr}.pwrap{position:static;max-width:520px}.floop{min-width:100%}}
 /* スマホ向け */
 @media(max-width:700px){
@@ -400,6 +400,87 @@ body.home header .actions .btn{border-color:#b9e0f4;color:#0e3a66}
   .help{font-size:11.5px}
   dialog{max-width:calc(100vw - 24px);padding:18px}
 }
+/* ===== ③ かんたん入力 ===== */
+.tabsep{align-self:center;margin:0 2px 6px 10px;padding:2px 9px;border-radius:999px;background:#fff;border:1px dashed #9fcbe4;color:#2f6f99;font-size:11.5px;font-weight:700;white-space:nowrap}
+.hsteps li.hopt{opacity:.8}
+.fstep.opt{border-style:dashed}
+.next{gap:8px;flex-wrap:wrap}
+.editor.easy{grid-template-columns:minmax(340px,500px) 1fr}
+#eform{padding-bottom:20px}
+.etpl{display:flex;align-items:center;justify-content:space-between;gap:10px;margin:14px 0 6px;padding:10px 12px;background:var(--soft);border-radius:10px;font-size:13px}
+.etpl b{color:var(--ink)}
+.ewarn{background:#fff7e0;border:1px solid #f2d27a;border-radius:8px;padding:8px 10px;font-size:12.5px;margin:8px 0;line-height:1.6}
+.ef{margin:14px 0}
+.ef>label{display:block;font-weight:700;font-size:14px;margin-bottom:6px}
+.ef>label em{font-style:normal;font-weight:400;font-size:12px;color:var(--muted);margin-left:6px}
+.ef input[type=text],.ef input[type=tel],.ef input[type=date]{width:100%;min-width:0;border:1px solid #b9d9ec;border-radius:10px;padding:11px 12px;font-size:16px;background:#f7fbfe;color:var(--ink)}
+.ef input:focus{outline:2px solid #8fd0f0;border-color:var(--brand);background:#fff}
+.echk{display:flex;align-items:center;gap:8px;font-size:13px;margin-top:8px;cursor:pointer}
+.echk input{width:20px;height:20px;flex:none}
+.daybtns{display:grid;grid-template-columns:repeat(6,1fr);gap:6px}
+.daybtns button,.seg button{min-height:46px;border:1px solid #b9d9ec;background:#fff;border-radius:10px;font-size:16px;font-weight:700;color:#2f4d66}
+.daybtns button.on,.seg button.on{background:var(--brand);border-color:var(--brand);color:#fff;box-shadow:0 2px 8px rgba(26,159,224,.3)}
+.seg{display:grid;grid-template-columns:1fr 1fr;gap:6px}
+.seg button{font-size:15px}
+.efee{margin-top:8px;font-size:13px;background:#f3f9fd;border-radius:8px;padding:8px 10px;line-height:1.7}
+.efee small{color:var(--muted);margin-left:4px}
+.erange{display:grid;grid-template-columns:minmax(0,1fr) auto minmax(0,1fr);gap:6px;align-items:center}
+.enote{display:block;font-size:12px;color:var(--muted);margin-top:6px}
+.erange+.mini{margin-top:6px}
+.ephotos{display:grid;grid-template-columns:repeat(auto-fill,minmax(82px,1fr));gap:8px}
+.eph{aspect-ratio:1;border:2px dashed #9fcbe4;border-radius:10px;background:#f3f9fd center/cover no-repeat;color:#2f6f99;font-weight:700;font-size:13px;display:flex;align-items:flex-end;justify-content:center;padding:0 0 6px}
+.eph.has{border:2px solid #fff;box-shadow:0 1px 4px rgba(0,0,0,.18)}
+.eph.has span{background:rgba(14,58,102,.8);color:#fff;border-radius:999px;padding:2px 10px;font-size:12px}
+.eph:not(.has){align-items:center;padding:0}
+.eph.dropon{outline:3px solid var(--brand)}
+.eacts{display:flex;flex-direction:column;gap:8px;margin-top:22px}
+.btn.big{padding:13px 16px;font-size:16px;font-weight:700;border-radius:12px}
+.btn.primary.big{font-size:17px}
+.emore{display:flex;flex-wrap:wrap;align-items:center;gap:6px;margin-top:14px;font-size:13px}
+.eprev{display:block;padding:0;border:0;cursor:zoom-in;box-shadow:0 6px 24px rgba(0,0,0,.14)}
+.pwrap .hint{text-align:center;font-size:12px;color:var(--muted);margin-top:8px}
+.sp-only{display:none}
+.page .el.empty{background:transparent;border-radius:0}
+.ebar{display:none}
+.spnote{background:#fff7e0;border:1px solid #f2d27a;border-radius:10px;padding:10px 12px;margin:12px 0;font-size:13px;line-height:1.6}
+.spnote b{display:block;font-size:14px}
+.spbtns{display:flex;gap:6px;margin-top:8px;flex-wrap:wrap}
+#dlgZoom{width:min(96vw,760px);max-width:none;max-height:96vh;padding:10px;overflow:auto}
+#dlgZoom .zhead{display:flex;align-items:center;gap:10px;margin-bottom:8px}
+#dlgZoom .zhead span{font-size:12px;color:var(--muted);flex:1}
+#dlgZoom .zbody{margin:0 auto;width:min(100%,calc((96vh - 80px) * 210 / 297))}
+#dlgPdfDone{max-width:min(460px,calc(100vw - 24px))}
+#dlgPdfDone .pdfmsg{font-size:14px;margin:0 0 12px}
+#dlgPdfDone .pdfbtns{display:flex;flex-direction:column;gap:8px}
+#dlgPdfDone .pdfsteps{font-size:12.5px;line-height:1.7;padding-left:18px;color:#2f4d66}
+#dlgPrint .sp-step{display:none}
+@media(max-width:860px){
+  .editor.easy{grid-template-columns:1fr}
+  .editor.easy .pwrap{max-width:440px}
+}
+/* スマホ */
+@media(max-width:760px){
+  .pc-only{display:none}.sp-only{display:inline}
+  #dlgPrint .sp-step{display:list-item}#dlgPrint .pc-step{display:none}
+  #v-easy .ebar{display:flex;position:fixed;left:0;right:0;bottom:0;z-index:31;gap:8px;background:rgba(255,255,255,.97);padding:8px 12px calc(8px + env(safe-area-inset-bottom));border-top:1px solid #d3e7f3;box-shadow:0 -4px 14px rgba(14,58,102,.10)}
+  #v-easy .ebar .btn{flex:1;padding:12px 8px;font-size:15px;font-weight:700;border-radius:10px}
+  #v-easy .ebar .btn:first-child{flex:0 0 36%}
+  body.v-easy .tabnav{display:none}
+  body.v-easy main{padding-bottom:84px}
+  .tabsep{margin:0 2px 6px 6px;font-size:10.5px}
+  .etpl{flex-wrap:wrap}
+  .eacts .btn.primary.big{display:none}
+}
+@media(max-width:380px){.daybtns{gap:4px}.daybtns button{font-size:15px}}
+@media(max-width:1300px){.tabhint{display:none}}
+/* タブレット（iPad など） */
+@media(min-width:761px) and (max-width:1050px){
+  .editor{gap:18px}
+  .editor.easy{grid-template-columns:minmax(320px,1fr) minmax(280px,1fr)}
+  .editor.easy .pwrap{position:sticky;top:120px}
+  nav.steps.tabs{overflow-x:auto;flex-wrap:nowrap}
+  .tabhint{display:none}
+}
 /* ===== チラシ本体 ===== */
 .frame{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}
 .page{position:relative;width:210mm;height:297mm;overflow:hidden;background:#fff;color:#222}
@@ -437,9 +518,11 @@ body.home header .actions .btn{border-color:#b9e0f4;color:#0e3a66}
 <nav class="steps tabs" aria-label="作成の手順">
   <button data-go="size"><i>1</i>用紙サイズ</button>
   <button data-go="templates"><i>2</i>テンプレート</button>
-  <button data-go="bgs"><i>3</i>背景</button>
-  <button data-go="colors"><i>4</i>色</button>
-  <button data-go="layout"><i>5</i>詳細な編集とレイアウト</button>
+  <button data-go="easy"><i>3</i>かんたん入力</button>
+  <span class="tabsep">もっとこだわる</span>
+  <button data-go="bgs"><i>4</i>背景</button>
+  <button data-go="colors"><i>5</i>色</button>
+  <button data-go="layout"><i>6</i>詳細な編集とレイアウト</button>
   <div class="tabnav"><span class="tabhint">タブで自由に行き来できます</span><button class="tbn" id="bPrev">← 前へ</button><button class="tbn nx" id="bNext">次へ →</button></div>
 </nav>
 </div>
@@ -450,7 +533,7 @@ body.home header .actions .btn{border-color:#b9e0f4;color:#0e3a66}
       <div class="hcopy">
         <div class="heyebrow"><i></i>教室のためのチラシづくり</div>
         <h1 class="htitle"><span class="en">PR FLYER MAKER</span><span class="ja"><em>PR</em>チラシメーカー</span></h1>
-        <p class="hlead">テンプレートを選んで、写真と文字を入れるだけ。<br>教室のチラシを、そのままPDFに。</p>
+        <p class="hlead">テンプレートを選んで、教室名や曜日を入れるだけ。<br>無料体験のチラシが、そのままPDFに。</p>
         <div class="hbtns">
           <button class="hbtn primary" id="hMake">つくる<span>→</span></button>
           <button class="hbtn" id="hSaved">保存したチラシを見る</button>
@@ -462,7 +545,7 @@ body.home header .actions .btn{border-color:#b9e0f4;color:#0e3a66}
         <div class="hblob b1"></div><div class="hblob b2"></div>
       </div>
     </div>
-    <ol class="hsteps"><li><b>1</b>用紙サイズ</li><li><b>2</b>テンプレート</li><li><b>3</b>背景</li><li><b>4</b>色</li><li><b>5</b>写真・文字・レイアウト</li><li><b>✓</b>保存・PDF</li></ol>
+    <ol class="hsteps"><li><b>1</b>用紙サイズ</li><li><b>2</b>テンプレート</li><li><b>3</b>教室名などを入力</li><li><b>✓</b>PDFで完成</li><li class="hopt"><b>＋</b>もっとこだわる（背景・色・細かい編集）</li></ol>
   </section>
 
   <section class="view" id="v-size">
@@ -472,21 +555,21 @@ body.home header .actions .btn{border-color:#b9e0f4;color:#0e3a66}
       <div class="floop">
         <div class="fstep"><b>2</b><div><strong>テンプレート</strong><span>教室向け90種類</span></div></div>
         <div class="farr">⇄</div>
-        <div class="fstep"><b>3</b><div><strong>背景</strong><span>季節の模様・枠</span></div></div>
+        <div class="fstep"><b>3</b><div><strong>かんたん入力</strong><span>教室名・曜日などを入れるだけ</span></div></div>
         <div class="farr">⇄</div>
-        <div class="fstep"><b>4</b><div><strong>色</strong><span>配色25パターン</span></div></div>
-        <div class="farr">⇄</div>
-        <div class="fstep"><b>5</b><div><strong>詳細な編集とレイアウト</strong><span>写真・文字・すべての部品を編集</span></div></div>
+        <div class="fstep opt"><b>＋</b><div><strong>もっとこだわる</strong><span>背景・色・細かい編集</span></div></div>
       </div>
       <div class="farr">→</div>
       <div class="fstep"><b>✓</b><div><strong>保存・PDF</strong><span>呼び出して再編集も</span></div></div>
     </div>
     <h2 class="vt">用紙サイズを選んでください</h2>
-    <p class="lead">選んだサイズでPDFに書き出されます。デザインはどのサイズでも同じ比率で拡大・縮小されます（あとから「⑤ 詳細な編集とレイアウト」の「ページの背景」でも変更できます）。</p>
+    <p class="lead">選んだサイズでPDFに書き出されます。デザインはどのサイズでも同じ比率で拡大・縮小されます（あとから「⑥ 詳細な編集とレイアウト」の「ページの背景」でも変更できます）。</p>
     <div class="sizegrid" id="sizeGrid"></div>
     <div class="notice" id="noticeBox">
       <div class="ntitle">はじめにお読みください（注意点）</div>
       <ul>
+        <li><b>【いちばんかんたんな作り方】</b>用紙サイズ → テンプレートを選んだら、<b>「③ かんたん入力」</b>で無料体験の名前・教室名・住所・曜日などを入れるだけ。<b>「このままPDFにする」</b>で完成です。背景・色・細かい配置は「もっとこだわる」からあとで変えられます。</li>
+        <li><b>【スマホ・タブレット】</b>テンプレート選び・かんたん入力・PDFの保存までできます。スマホでPDFを保存するときは、出てくる画面の<b>「共有・保存する」</b>から「"ファイル"に保存」などを選んでください。細かい編集（配置の調整など）は<b>パソコンがおすすめ</b>です。</li>
         <li><b>【保存のしかた】</b>右上の<b>「保存」</b>ボタン（または <span class="kbd">Ctrl</span><span class="kbd">S</span>）を押します。保存したチラシは、上のメニュー<b>「保存したチラシ」→「開く」</b>でいつでも呼び出せます。</li>
         <li><b>【気をつけること】</b>保存先は「今使っているパソコンの、今使っているブラウザ（Chrome など）」の中です。<b>別のパソコン</b>や、同じパソコンでも<b>別のブラウザ（Edge など）</b>で開くと、保存したチラシは表示されません。また、ブラウザの設定で<b>「閲覧履歴データの削除」→「Cookie と他のサイトデータ」</b>を消すと、保存したチラシも消えてしまいます。</li>
         <li><b>【バックアップのしかた】</b>①上のメニュー<b>「保存したチラシ」</b>を開く → ②<b>「全部をファイルに書き出す（バックアップ）」</b>を押す → ③「チラシ_バックアップ_日付.json」というファイルが<b>ダウンロード</b>フォルダに保存されます。USBメモリやクラウド（Google ドライブなど）にコピーしておくと安心です。1枚だけ残すときは、そのチラシの<b>「ファイルに書き出す」</b>を押します。</li>
@@ -509,6 +592,20 @@ body.home header .actions .btn{border-color:#b9e0f4;color:#0e3a66}
     <div class="cats" id="cats"></div>
     <div class="tfilter" id="tfilter"></div>
     <div class="grid" id="tplGrid"></div>
+  </section>
+
+  <section class="view" id="v-easy">
+    <div class="editor easy">
+      <div class="form" id="eform"></div>
+      <div class="pwrap">
+        <button type="button" class="fit eprev" id="eprev" title="タップで大きく表示"></button>
+        <div class="hint"><span class="pc-only">入力するとすぐに反映されます</span><span class="sp-only">チラシをタップすると大きく表示します</span></div>
+      </div>
+    </div>
+    <div class="ebar">
+      <button type="button" class="btn" id="eBarPrev">プレビュー</button>
+      <button type="button" class="btn primary" id="eBarPdf">このままPDFにする</button>
+    </div>
   </section>
 
   <section class="view" id="v-bgs">
@@ -554,8 +651,9 @@ body.home header .actions .btn{border-color:#b9e0f4;color:#0e3a66}
           <button class="btn small" id="bPageProps">ページの背景を編集</button>
           <span class="sp"></span>
           <button class="btn small" id="bToTpl">← ② テンプレート</button>
-          <button class="btn small" id="bToBgs">← ③ 背景</button>
-          <button class="btn small" id="bToColors">← ④ 色</button>
+          <button class="btn small" id="bToEasy">← ③ かんたん入力</button>
+          <button class="btn small" id="bToBgs">← ④ 背景</button>
+          <button class="btn small" id="bToColors">← ⑤ 色</button>
         </div>
         <div id="stage"><div id="pw"><div id="pageHost"></div></div></div>
       </div>
@@ -602,15 +700,33 @@ body.home header .actions .btn{border-color:#b9e0f4;color:#0e3a66}
     <div style="display:flex;gap:8px;justify-content:flex-end"><button type="button" class="btn" id="pdfNameCancel">やめる</button><button type="submit" class="btn primary" id="pdfNameOk">この名前で書き出す</button></div>
   </form>
 </dialog>
+<dialog id="dlgZoom">
+  <div class="zhead"><b>プレビュー</b><span>指で広げると拡大できます</span><button type="button" class="btn" id="zoomClose">閉じる</button></div>
+  <div class="zbody"><div class="fit" id="zoomBox"></div></div>
+</dialog>
+<dialog id="dlgPdfDone">
+  <h3>PDFができました</h3>
+  <p class="pdfmsg" id="pdfDoneMsg"></p>
+  <div class="pdfbtns">
+    <button type="button" class="btn primary big" id="pdfShare">共有・保存する</button>
+    <button type="button" class="btn big" id="pdfOpen">PDFを開く／ダウンロード</button>
+  </div>
+  <ol class="pdfsteps">
+    <li><b>iPhone・iPad：</b>「共有・保存する」→ 一覧から<b>「"ファイル"に保存」</b>を選ぶ（LINE やメールで送ることもできます）</li>
+    <li><b>Android：</b>「PDFを開く／ダウンロード」→ 画面の下に出る<b>「開く」</b>、または通知から確認できます（ダウンロードフォルダに保存されます）</li>
+  </ol>
+  <div class="dlgrow"><span></span><button type="button" class="btn" id="pdfDoneClose">閉じる</button></div>
+</dialog>
 <dialog id="dlgPrint">
   <h3>印刷画面からPDFを保存する</h3>
   <p style="font-size:13px;margin:-4px 0 8px;color:#5b7a93">このブラウザではPDFを直接作れなかったため、印刷画面から保存します。</p>
   <ol>
-    <li>送信先（プリンター）で<b>「PDFに保存」</b>を選ぶ</li>
-    <li>用紙サイズ <b id="dlgSize">A4</b>／余白 <b>なし</b>（倍率は「100%」または「デフォルト」）</li>
-    <li>スマホの場合：共有ボタン（またはメニュー）→「プリント」→「PDFとして保存」など、端末の操作で保存します</li>
-    <li>詳細設定の<b>「背景のグラフィック」</b>にチェック</li>
-    <li>「保存」を押す</li>
+    <li class="pc-step">送信先（プリンター）で<b>「PDFに保存」</b>を選ぶ</li>
+    <li class="pc-step">用紙サイズ <b id="dlgSize">A4</b>／余白 <b>なし</b>（倍率は「100%」または「デフォルト」）</li>
+    <li class="sp-step"><b>iPhone・iPad：</b>印刷画面（オプション）が出たら、右上の<b>共有ボタン（□に↑）</b>→<b>「"ファイル"に保存」</b>を選ぶ</li>
+    <li class="sp-step"><b>Android：</b>印刷画面の上の「プリンタを選択」で<b>「PDF形式で保存」</b>を選び、PDFのボタンを押す</li>
+    <li class="pc-step">詳細設定の<b>「背景のグラフィック」</b>にチェック</li>
+    <li class="pc-step">「保存」を押す</li>
   </ol>
   <div class="dlgrow">
     <label style="font-size:13px"><input type="checkbox" id="dlgSkip"> 次から表示しない</label>
@@ -621,6 +737,12 @@ body.home header .actions .btn{border-color:#b9e0f4;color:#0e3a66}
 <script>
 (() => {
 'use strict';
+/* ================= 会費（1教科あたり・税込） ================= */
+/* 金額を変えるときは、ここの数字だけ書き換えてください（「円」は自動で付きます） */
+const FEES = {
+  tokyo:{ name:'東京・神奈川', kid:'〇,〇〇〇', jh:'〇,〇〇〇', hs:'〇,〇〇〇' },
+  other:{ name:'その他の地域', kid:'7,480', jh:'8,580', hs:'9,680' },
+};
 const $ = s => document.querySelector(s);
 const MMPX = 96 / 25.4, PW = 210, PH = 297, FW = PW * MMPX, FH = PH * MMPX;
 const esc = s => String(s ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
@@ -2610,7 +2732,7 @@ function areaUI(p, inProps) {
     ${a.target === 'all' ? `<div class="cprow">${P.col('ar_out', '範囲の外の色', a.out || '#ffffff')}</div>` : ''}
     <p class="tip" style="margin:4px 0 0">範囲：左から ${a.x} ／ 上から ${a.y} ／ 幅 ${a.w} ／ 高さ ${a.h}（mm）</p>` : `<p class="tip" style="margin:4px 0 0">フェード（ぼかし）をかけた写真の後ろに模様が透けて気になるときは、範囲をしぼると すっきりします。</p>`}`;
 }
-/* ボタン・入力の共通処理（③背景 と ⑤ページの背景 の両方で使う） */
+/* ボタン・入力の共通処理（④背景 と ⑥ページの背景 の両方で使う） */
 function areaClick(b, after) {
   if (b.dataset.area) {
     const k = b.dataset.area;
@@ -2775,7 +2897,7 @@ function renderEl(e, mode, assets) {
   const lk = mode === 'edit' && e.locked ? ' locked' : '';
   if (e.kind === 'image') {
     let src = assets[e.asset];
-    if (mode === 'pal' || (!isImg(src) && mode === 'thumb')) src = sampleFor(e);
+    if (mode === 'pal' || (!isImg(src) && (mode === 'thumb' || (mode !== 'edit' && cur && cur.easy && cur.easy.samples && cur.elements.includes(e))))) src = sampleFor(e);
     let inner;
     if (isImg(src)) {
       const fl = FILTER_CSS[e.filter] || '';
@@ -2807,7 +2929,7 @@ function fitTexts(root) {
     const base = parseFloat(tx.dataset.fs || tx.style.fontSize); if (!base) return;
     tx.dataset.fs = base; tx.style.fontSize = base + 'pt';
     const cs = getComputedStyle(n);
-    const aw = n.clientWidth - parseFloat(cs.paddingLeft) - parseFloat(cs.paddingRight) + 0.5;
+    const aw = Math.ceil(n.clientWidth - parseFloat(cs.paddingLeft) - parseFloat(cs.paddingRight)) + 0.5;
     const ah = n.clientHeight - parseFloat(cs.paddingTop) - parseFloat(cs.paddingBottom) + 0.5;
     if (aw <= 1 || ah <= 1) return;
     let k = 1;
@@ -2857,6 +2979,7 @@ function commit() {
   clearTimeout(commitT);
   const s = snap(); if (s === hist[hi]) return;
   hist = hist.slice(0, hi + 1); hist.push(s); if (hist.length > 100) hist.shift(); hi = hist.length - 1;
+  if (view === 'layout' || view === 'content') cur.tuned = true;
   dirty = true; fresh = false; updUndo();
 }
 const softCommit = () => { clearTimeout(commitT); commitT = setTimeout(commit, 400); dirty = true; fresh = false; };
@@ -2872,14 +2995,19 @@ const imgEls = () => cur.elements.filter(e => e.kind === 'image');
 
 /* ================= 画面切り替え ================= */
 function go(v) {
-  if (v === 'content') v = 'layout';
+  /* スマホでは「細かい編集」の代わりに、文字の書き換えと写真の差し替えだけの画面を出す */
+  if (v === 'content' && !isPhone()) v = 'layout';
+  if (v === 'layout' && isPhone() && !forceLayout) v = 'content';
+  if (v !== 'layout') forceLayout = false;
   areaDraw = false;
   if (v !== view) commit();
   const prev = view; view = v;
   document.querySelectorAll('.view').forEach(e => e.classList.toggle('active', e.id === 'v-' + v));
   document.querySelectorAll('[data-go]').forEach(b => b.classList.toggle('on', b.dataset.go === v));
   document.body.classList.toggle('home', v === 'home');
-  const si = STEPS.indexOf(v);
+  STEPS.concat(['content', 'saved']).forEach(x => document.body.classList.toggle('v-' + x, v === x));
+  document.querySelectorAll('[data-go="layout"]').forEach(b => b.classList.toggle('on', v === 'layout' || v === 'content'));
+  const si = STEPS.indexOf(v === 'content' ? 'layout' : v);
   $('#bPrev').disabled = si <= 0; $('#bNext').disabled = si < 0 || si >= STEPS.length - 1;
   $('#bNext').style.visibility = si >= 0 ? '' : 'hidden'; $('#bPrev').style.visibility = si >= 0 ? '' : 'hidden';
   const ontab = document.querySelector('nav.steps.tabs>button.on'); if (ontab && innerWidth < 700) ontab.scrollIntoView({ inline:'center', block:'nearest' });
@@ -2888,12 +3016,14 @@ function go(v) {
   if (v === 'templates') drawTemplates();
   if (v === 'bgs') renderBgs();
   if (v === 'colors') { if (prev !== 'colors' || !colorBase) takeBase(); renderColors(); }
+  if (v === 'easy') renderEasy();
   if (v === 'content') { renderContent(); mountPreview(); }
   if (v === 'layout') { renderStage(); renderProps(); layoutScale(); requestAnimationFrame(layoutScale); }
   if (v === 'saved') drawSaved();
   window.scrollTo(0, 0);
 }
-const STEPS = ['size', 'templates', 'bgs', 'colors', 'layout'];
+const STEPS = ['size', 'templates', 'easy', 'bgs', 'colors', 'layout'];
+let forceLayout = false;
 document.querySelectorAll('[data-go]').forEach(b => b.onclick = () => go(b.dataset.go));
 $('#bPrev').onclick = () => { const i = STEPS.indexOf(view); if (i > 0) go(STEPS[i - 1]); };
 $('#bNext').onclick = () => { const i = STEPS.indexOf(view); if (i >= 0 && i < STEPS.length - 1) go(STEPS[i + 1]); };
@@ -2904,7 +3034,7 @@ function drawHome() {
   if (!homeDrawn) { ['pro-sky', 'pro-m-polaroid', 'pro-hero'].forEach((id, i) => mount($('#v-home .hcard.c' + (i + 1)), newFlyer(id), 'thumb')); homeDrawn = true; }
   const m = $('#hMeta');
   m.innerHTML = fresh ? '' : `作成中のチラシがあります。<button id="hCont">続きを編集する</button>`;
-  const hc = $('#hCont'); if (hc) hc.onclick = () => go('content');
+  const hc = $('#hCont'); if (hc) hc.onclick = () => go(cur.tuned ? 'layout' : 'easy');
   DB.all().then(list => { if (list.length) m.insertAdjacentHTML('afterbegin', `保存したチラシ：${list.length}件　`); }).catch(() => {});
 }
 $('#hMake').onclick = () => {
@@ -2913,13 +3043,14 @@ $('#hMake').onclick = () => {
 };
 $('#hSaved').onclick = () => go('saved');
 function redraw() {
-  if (view === 'layout') { renderStage(); renderProps(); }
+  if (view === 'easy') renderEasy();
+  else if (view === 'layout') { renderStage(); renderProps(); }
   else if (view === 'content') { renderContent(); mountPreview(); }
   else if (view === 'colors') { takeBase(); renderColors(); }
   else if (view === 'bgs') renderBgs();
 }
 function refreshEl(e) {
-  const host = view === 'layout' ? $('#pageHost') : view === 'content' ? $('#cprev') : null;
+  const host = view === 'layout' ? $('#pageHost') : view === 'content' ? $('#cprev') : view === 'easy' ? $('#eprev') : null;
   if (!host) return;
   const n = host.querySelector(`.el[data-id="${e.id}"]`);
   if (n) { n.outerHTML = renderEl(e, view === 'layout' ? 'edit' : 'preview', cur.assets); if (e.autofit) fitTexts(host); }
@@ -2940,7 +3071,7 @@ $('#sizeGrid').addEventListener('click', ev => {
   go('templates');
 });
 $('#bSizeBack').onclick = () => go('size');
-let thumbCache = null;
+let thumbCache = null, thumbKey = '';
 /* テンプレートの目印（テーマ・デザイン） */
 const THEMES = { open:'新規オープン', joint:'2教室の合同', kids:'幼児', elem:'小学生', teen:'中高生', adult:'大人', math:'算数・数学', eng:'英語', jp:'国語', spring:'春', summer:'夏', autumn:'秋', winter:'冬・お正月', trial:'無料体験', campaign:'キャンペーン', intro:'教室紹介・学習法', voice:'実績・声' };
 const STYLES = { simple:'シンプル', pro:'おしゃれ', cute:'かわいい', wa:'和風・上品' };
@@ -2978,7 +3109,9 @@ function drawTemplates() {
   $('#tplHead').textContent = tplTab === 'all' ? 'テンプレート全体' : '条件を選んで、テンプレートを探す';
   $('#cats').innerHTML = Object.entries(CATS).map(([k, l]) => `<button data-cat="${k}" class="${k === catSel ? 'on' : ''}">${l}</button>`).join('');
   const g = $('#tplGrid'); g.innerHTML = '';
-  if (!thumbCache) thumbCache = Object.fromEntries(TEMPLATES.map(t => [t.id, newFlyer(t.id)]));
+  /* 一覧の見本にも、かんたん入力の内容を入れて表示する */
+  const tk = JSON.stringify(easy);
+  if (!thumbCache || thumbKey !== tk) { thumbCache = Object.fromEntries(TEMPLATES.map(t => { const f = applyEasy(newFlyer(t.id)); delete f.easy; return [t.id, f]; })); thumbKey = tk; }
   const nImg = id => thumbCache[id].elements.filter(e => e.kind === 'image').length;
   /* 写真を多く使うテンプレートほど上に（同じ枚数ならもとの順番） */
   const pass = o => {
@@ -3014,7 +3147,19 @@ $('#tfilter').addEventListener('click', ev => {
   drawTemplates();
 });
 function chooseTemplate(tid) {
-  if (fresh) { const id = cur.id; cur = newFlyer(tid); cur.id = id; resetHist(); fresh = false; dirty = true; go('bgs'); return; }
+  if (fresh) { const id = cur.id; cur = applyEasy(newFlyer(tid)); cur.id = id; resetHist(); fresh = false; dirty = true; go('easy'); return; }
+  if (cur.template === tid && !cur.tuned) { go('easy'); return; }
+  /* 細かい編集をしていなければ、確認なしで入れ替える（入力内容と写真はそのまま） */
+  if (!cur.tuned) {
+    const old = cur, nf = applyEasy(newFlyer(tid));
+    const oldImgs = old.elements.filter(e => e.kind === 'image' && e.asset), newImgs = nf.elements.filter(e => e.kind === 'image');
+    oldImgs.forEach((o, i) => { if (newImgs[i]) Object.assign(newImgs[i], { asset:o.asset, zoom:o.zoom, fx:o.fx, fy:o.fy, fit:o.fit }); });
+    nf.assets = old.assets; nf.id = old.id; nf.pdfName = old.pdfName;
+    nf.page = { ...nf.page, size:old.page.size, pattern:old.page.pattern !== 'none' ? old.page.pattern : nf.page.pattern, frame:old.page.frame, frameColor:old.page.frameColor, frameColor2:old.page.frameColor2 };
+    cur = nf; sel = null; multi = []; commit(); go('easy');
+    if (oldImgs.length > newImgs.length) toast(`写真の枠が${newImgs.length}か所なので、${newImgs.length}枚だけ入れました`);
+    return;
+  }
   if (!confirm('テンプレートを変更します。\n入力した文字と画像は引き継ぎ、配置は新しいテンプレートのものになります。\n（新しいテンプレートにない項目は引き継がれません。「元に戻す」で戻せます）')) return;
   const old = cur, nf = newFlyer(tid), used = new Set();
   const oldTexts = old.elements.filter(e => e.kind === 'text');
@@ -3026,10 +3171,194 @@ function chooseTemplate(tid) {
   oldTexts.filter(o => !used.has(o) && !o.role && o.text).forEach(o => nf.elements.push({ ...o, id:uid() }));
   const oldImgs = old.elements.filter(e => e.kind === 'image' && e.asset), newImgs = nf.elements.filter(e => e.kind === 'image');
   oldImgs.forEach((o, i) => { if (newImgs[i]) newImgs[i].asset = o.asset; else nf.elements.push(I(o.label, 50 + i * 5, 100 + i * 5, 90, 60, { asset:o.asset })); });
-  nf.assets = old.assets; nf.id = old.id;
+  nf.assets = old.assets; nf.id = old.id; nf.pdfName = old.pdfName; nf.easy = old.easy; nf.tuned = true;
+  nf.elements.forEach(e => { const o = old.elements.find(x => x.kind === 'text' && x.role === e.role && x.manual); if (o && EASY_ROLES.includes(e.role)) e.manual = true; });
   nf.page = { ...nf.page, size:old.page.size, pattern:old.page.pattern !== 'none' ? old.page.pattern : nf.page.pattern, frame:old.page.frame, frameColor:old.page.frameColor, frameColor2:old.page.frameColor2 };
-  cur = nf; sel = null; commit(); go('bgs');
+  cur = nf; sel = null; commit(); go('easy');
 }
+
+/* ================= ③ かんたん入力（入力するだけでチラシが完成） ================= */
+const DAYS = ['月', '火', '水', '木', '金', '土'];
+const EASY_DEF = { trial:'', org:'', prefix:true, addr:'', days:[], area:'other', tel:'', start:'', end:'', time:'', teacher:'', open:'',
+  org2:'', addr2:'', days2:[], time2:'', tel2:'', teacher2:'', samples:true };
+/* 入力欄の内容が入る部品（テンプレートの role） */
+const SUB_ROLES = ['sub', 'label1', 'label2', 'masthead'];   /* 「○○教室」の部分だけ教室名に置き換える部品 */
+const EASY_ROLES = ['trial', 'trialDate', 'org', 'teacher', 'tel', 'fee', 'address', 'open', 'org2', 'teacher2', 'tel2', 'address2', ...SUB_ROLES];
+const DATE_RE = /^\d{4}-\d{2}-\d{2}$/;
+function sanitizeEasy(o) {
+  if (!o || typeof o !== 'object') return null;
+  const e = { ...EASY_DEF };
+  Object.keys(EASY_DEF).forEach(k => {
+    const d = EASY_DEF[k], v = o[k];
+    if (Array.isArray(d)) e[k] = Array.isArray(v) ? DAYS.filter(x => v.includes(x)) : [];
+    else if (typeof d === 'boolean') e[k] = typeof v === 'boolean' ? v : d;
+    else e[k] = typeof v === 'string' ? v.slice(0, 200) : d;
+  });
+  e.area = has(FEES, e.area) ? e.area : 'other';
+  if (!DATE_RE.test(e.start)) e.start = ''; if (!DATE_RE.test(e.end)) e.end = '';
+  return e;
+}
+let easy = (() => { try { return sanitizeEasy(JSON.parse(store.get('fm_easy') || 'null')) || { ...EASY_DEF }; } catch (_) { return { ...EASY_DEF }; } })();
+const saveEasy = () => store.set('fm_easy', JSON.stringify(easy));
+/* テンプレートのもとの文章（書式の見本にする） */
+const tplDefCache = {};
+function tplDefs(tid) {
+  if (!tplDefCache[tid]) { const d = {}; tplOf(tid).build && newFlyer(tid).elements.forEach(e => { if (e.role && !has(d, e.role)) d[e.role] = e.text; }); tplDefCache[tid] = d; }
+  return tplDefCache[tid];
+}
+const fmtDate = v => { if (!DATE_RE.test(v || '')) return ''; const [y, m, d] = v.split('-').map(Number), dt = new Date(y, m - 1, d); return `${m}月${d}日（${'日月火水木金土'[dt.getDay()]}）`; };
+const daysText = a => a.length ? DAYS.filter(x => a.includes(x)).join('・') : '○・○';
+const feeText = (def, area) => {
+  const f = FEES[area] || FEES.other;
+  return /\n/.test(def || '\n')
+    ? `会費（1教科あたり）\n幼児・小学生　${f.kid}円\n中学生　${f.jh}円\n高校生　${f.hs}円`
+    : `会費（1教科あたり）　幼児・小学生 ${f.kid}円／中学生 ${f.jh}円／高校生 ${f.hs}円`;
+};
+function addrText(def, addr, days, time) {
+  const a = addr.trim() || '○○市○○町1-2-3 ○○ビル2F', d = '教室日：' + daysText(days), t = time.trim();
+  const n = ((def || '\n\n').match(/\n/g) || []).length;
+  if (n === 1) return `${a}\n${d}${t ? '　' + t : ''}`;
+  return [a, d, t && '時間：' + t].filter(Boolean).join(n ? '\n' : '　');
+}
+const orgText = (v, def) => { v = v.trim(); if (!v) return def || '公文式 ○○教室'; return easy.prefix && !/^公文/.test(v) ? '公文式 ' + v : v; };
+const bareOrg = v => v.trim().replace(/^公文式\s*/, '');
+function orgFill(def) {
+  let t = def || ''; const o1 = easy.org.trim(), o2 = easy.org2.trim();
+  if (o1) t = t.replace('公文式 ○○教室', orgText(o1)).replace(/○○教室/g, bareOrg(o1));
+  if (o2) t = t.replace(/△△教室/g, bareOrg(o2));
+  return t;
+}
+function periodText(def) {
+  const s = fmtDate(easy.start), e = fmtDate(easy.end);
+  if (s && e) return `${s}～${/\n/.test(def || '') ? '\n' : ''}${e}`;
+  if (s) return `${s}から`;
+  if (e) return `${e}まで`;
+  return 'お気軽にお問い合わせください';
+}
+function easyText(role, def) {
+  const E = easy;
+  switch (role) {
+    case 'trial': return E.trial.trim() || def;
+    case 'trialDate': return periodText(def);
+    case 'org': return orgText(E.org, def);
+    case 'org2': return orgText(E.org2, def);
+    case 'teacher': return E.teacher.trim() ? '指導者：' + E.teacher.trim() : '';
+    case 'teacher2': return E.teacher2.trim() ? '指導者：' + E.teacher2.trim() : '';
+    case 'tel': return E.tel.trim() ? 'TEL ' + E.tel.trim() : '';
+    case 'tel2': return E.tel2.trim() ? 'TEL ' + E.tel2.trim() : '';
+    case 'fee': return feeText(def, E.area);
+    case 'address': return addrText(def, E.addr, E.days, E.time);
+    case 'address2': return addrText(def, E.addr2, E.days2, E.time2);
+    case 'sub': case 'label1': case 'label2': case 'masthead': return orgFill(def);
+    case 'open': { let v = E.open.trim(); if (!v) return def; if (/^\d+$/.test(v)) v += '月'; return def.replace(/〇月/, v); }
+  }
+  return null;
+}
+/* 入力内容をチラシの部品に流し込む（「細かい編集」で手で書き換えた部品はそのまま） */
+function applyEasy(f) {
+  const def = tplDefs(f.template);
+  f.elements.forEach(e => {
+    if (e.kind !== 'text' || e.manual || !EASY_ROLES.includes(e.role)) return;
+    const t = easyText(e.role, has(def, e.role) ? def[e.role] : e.text);
+    if (t != null) { if (SUB_ROLES.includes(e.role) && t !== e.text) e.autofit = true; e.text = t; }
+  });
+  f.easy = JSON.parse(JSON.stringify(easy));
+  return f;
+}
+const easyRoles = f => new Set(f.elements.filter(e => e.kind === 'text' && EASY_ROLES.includes(e.role)).map(e => e.role));
+const isPhone = () => matchMedia('(max-width:760px)').matches;
+function renderEasy() {
+  const f = $('#eform'), E = easy, roles = easyRoles(cur), imgs = imgEls();
+  const manual = cur.elements.some(e => e.manual && EASY_ROLES.includes(e.role));
+  const inp = (k, ph, o = {}) => `<input type="${o.type || 'text'}" data-e="${k}" value="${esc(E[k])}" placeholder="${esc(ph)}"${o.im ? ` inputmode="${o.im}"` : ''}${o.ac ? ` autocomplete="${o.ac}"` : ' autocomplete="off"'}>`;
+  const dayBtns = k => `<div class="daybtns" role="group">${DAYS.map(d => `<button type="button" data-day="${k}" data-v="${d}" class="${E[k].includes(d) ? 'on' : ''}" aria-pressed="${E[k].includes(d)}">${d}</button>`).join('')}</div>`;
+  const fee = FEES[E.area];
+  f.innerHTML = `
+    <div class="etpl"><span>テンプレート：<b>${esc(tplOf(cur.template).name)}</b>（${esc(cur.page.size || 'A4')}）</span><button type="button" class="mini" data-act="toTpl">変える</button></div>
+    ${roles.size ? '' : '<p class="ewarn">このテンプレート（白紙）には、自動で文字が入る場所がありません。ほかのテンプレートを選ぶか、「細かく編集する」で文字を入れてください。</p>'}
+    ${manual ? '<p class="ewarn">「細かい編集」で書き換えた文字は、ここで入力しても変わりません（テンプレートを選び直すと元に戻ります）。</p>' : ''}
+    <div class="ef"><label>無料体験の名前 <em>チラシの大見出し</em></label>${inp('trial', '例：秋の無料体験学習')}</div>
+    <div class="ef"><label>教室名</label>${inp('org', '例：○○教室', { ac:'organization' })}
+      <label class="echk"><input type="checkbox" data-e="prefix"${E.prefix ? ' checked' : ''}> 頭に「公文式」をつける</label></div>
+    <div class="ef"><label>住所</label>${inp('addr', '例：○○市○○町1-2-3 ○○ビル2F', { ac:'street-address' })}</div>
+    <div class="ef"><label>学習曜日 <em>押して選ぶ（いくつでも）</em></label>${dayBtns('days')}</div>
+    <div class="ef"><label>学習エリア <em>会費の表が切り替わります</em></label>
+      <div class="seg">${Object.entries(FEES).map(([k, v]) => `<button type="button" data-area="${k}" class="${E.area === k ? 'on' : ''}">${esc(v.name)}</button>`).join('')}</div>
+      <div class="efee">幼児・小学生 <b>${esc(fee.kid)}円</b>／中学生 <b>${esc(fee.jh)}円</b>／高校生 <b>${esc(fee.hs)}円</b><small>（1教科あたり・税込）</small></div></div>
+    <h3>ここから下は入れなくてもOK</h3>
+    <div class="ef"><label>電話番号</label>${inp('tel', '例：000-000-0000', { type:'tel', im:'tel', ac:'tel' })}</div>
+    <div class="ef"><label>体験の期間</label><div class="erange">${inp('start', '', { type:'date' })}<span>～</span>${inp('end', '', { type:'date' })}</div>
+      ${E.start || E.end ? '<button type="button" class="mini" data-act="clearDates">期間を消す</button>' : '<small class="enote">入れないときは「お気軽にお問い合わせください」と入ります</small>'}</div>
+    <div class="ef"><label>学習時間</label>${inp('time', '例：14:00〜19:30')}</div>
+    <div class="ef"><label>指導者名</label>${inp('teacher', '例：山田 花子', { ac:'name' })}</div>
+    ${roles.has('open') ? `<div class="ef"><label>オープンの時期</label>${inp('open', '例：4月')}</div>` : ''}
+    ${roles.has('org2') ? `<h3>2つ目の教室（合同チラシ）</h3>
+      <div class="ef"><label>教室名</label>${inp('org2', '例：△△教室')}</div>
+      <div class="ef"><label>住所</label>${inp('addr2', '例：△△市△△町4-5-6')}</div>
+      <div class="ef"><label>学習曜日</label>${dayBtns('days2')}</div>
+      <div class="ef"><label>学習時間</label>${inp('time2', '例：14:00〜19:30')}</div>
+      <div class="ef"><label>電話番号</label>${inp('tel2', '例：000-000-1111', { type:'tel', im:'tel' })}</div>
+      <div class="ef"><label>指導者名</label>${inp('teacher2', '例：佐藤 太郎')}</div>` : ''}
+    ${imgs.length ? `<h3>写真（${imgs.length}か所）</h3>
+      <div class="ephotos">${imgs.map((e, i) => { const src = cur.assets[e.asset], ok = isImg(src); return `<button type="button" class="eph${ok ? ' has' : ''}" data-pick="${e.id}" ${ok ? `style="background-image:url('${esc(src)}')"` : ''}><span>${ok ? '変える' : '＋ 写真' + (i + 1)}</span></button>`; }).join('')}</div>
+      <label class="echk"><input type="checkbox" data-e="samples"${E.samples ? ' checked' : ''}> 写真を入れていない所には、見本のイラストを入れる</label>` : ''}
+    <div id="ePh"></div>
+    <div class="eacts">
+      <button type="button" class="btn primary big" data-act="pdf">このままPDFにする</button>
+      <button type="button" class="btn big" data-act="save">ブラウザに保存する</button>
+      <button type="button" class="btn big" data-act="detail">細かく編集する（⑥へ）</button>
+    </div>
+    <div class="emore"><b>もっとこだわる：</b><button type="button" class="mini" data-act="bgs">④ 背景・枠を変える</button><button type="button" class="mini" data-act="colors">⑤ 色を変える</button></div>
+    <p class="tip">入力した内容はこのブラウザに記憶されるので、テンプレートを変えても入れ直す必要はありません。</p>`;
+  mountEasyPreview();
+}
+let easyT = 0;
+function phLeft() {
+  const fee = cur.elements.some(e => e.kind === 'text' && e.role === 'fee' && /〇/.test(e.text));
+  /* 入力欄で直せる部品（教室名・住所など）は除いて、入力欄にない部分だけ知らせる */
+  const rest = cur.elements.filter(e => e.kind === 'text' && e.role !== 'deco' && (!EASY_ROLES.includes(e.role) || e.manual || SUB_ROLES.includes(e.role) && easy.org.trim()) && /[○〇]|△△|000-000/.test(e.text));
+  let h = '';
+  if (fee) h += '<p class="ewarn">会費の金額がまだ「〇,〇〇〇円」のままです（東京・神奈川の金額が未設定です）。</p>';
+  if (rest.length) h += `<p class="ewarn">チラシの中に、まだ「○○」などの見本の文字が残っています：<br>${rest.slice(0, 6).map(e => `<b>${esc(e.label)}</b>「${esc(e.text.replace(/\s+/g, ' ').slice(0, 22))}…」`).join('<br>')}<br>これらは「細かく編集する」で書き換えてください。</p>`;
+  const n = $('#ePh'); if (n) n.innerHTML = h;
+}
+function mountEasyPreview() { phLeft(); mount($('#eprev'), cur, 'preview'); if ($('#dlgZoom').open) mount($('#zoomBox'), cur, 'preview'); }
+function easyChanged(full) {
+  saveEasy(); applyEasy(cur); dirty = true;
+  if (full) renderEasy(); else mountEasyPreview();
+  clearTimeout(easyT); easyT = setTimeout(commit, 600);
+}
+const eform = $('#eform');
+eform.addEventListener('input', ev => {
+  const t = ev.target, k = t.dataset.e; if (!k) return;
+  if (t.type === 'checkbox') easy[k] = t.checked; else easy[k] = t.value;
+  easyChanged(t.type === 'checkbox' || t.type === 'date');
+});
+eform.addEventListener('click', ev => {
+  const d = ev.target.closest('[data-day]');
+  if (d) { const a = easy[d.dataset.day], v = d.dataset.v, i = a.indexOf(v); if (i >= 0) a.splice(i, 1); else a.push(v); d.classList.toggle('on', i < 0); d.setAttribute('aria-pressed', i < 0); easyChanged(false); return; }
+  const ar = ev.target.closest('[data-area]');
+  if (ar) { easy.area = ar.dataset.area; easyChanged(true); return; }
+  const pk = ev.target.closest('[data-pick]');
+  if (pk) { pickImage(pk.dataset.pick); return; }
+  const b = ev.target.closest('[data-act]'); if (!b) return;
+  const a = b.dataset.act;
+  if (a === 'toTpl') go('templates');
+  else if (a === 'clearDates') { easy.start = easy.end = ''; easyChanged(true); }
+  else if (a === 'pdf') $('#bPdf').click();
+  else if (a === 'save') saveCur();
+  else if (a === 'detail') go('layout');
+  else if (a === 'bgs' || a === 'colors') go(a);
+});
+/* プレビューを大きく表示（スマホではタップで） */
+function openZoom() {
+  const d = $('#dlgZoom'); d.showModal(); mount($('#zoomBox'), cur, 'preview');
+}
+$('#eprev').addEventListener('click', ev => { ev.preventDefault(); openZoom(); });
+$('#eBarPrev').onclick = openZoom;
+$('#eBarPdf').onclick = () => $('#bPdf').click();
+$('#zoomClose').onclick = () => $('#dlgZoom').close();
+$('#dlgZoom').addEventListener('click', ev => { if (ev.target.id === 'dlgZoom') $('#dlgZoom').close(); });
 
 /* ================= ② 画像と文字 ================= */
 function renderContent() {
@@ -3037,6 +3366,7 @@ function renderContent() {
   const texts = cur.elements.filter(e => e.kind === 'text' && e.role !== 'deco').sort((a, b) => (a.y - b.y) || (a.x - b.x));
   const imgs = imgEls();
   f.innerHTML = `
+    ${isPhone() ? `<div class="spnote"><b>細かい編集はパソコンがおすすめです</b>スマホでは、文字の書き換えと写真の差し替えができます。<div class="spbtns"><button type="button" class="btn" data-act="toEasy">← かんたん入力に戻る</button><button type="button" class="btn" data-act="pdf">PDFにする</button></div></div>` : ''}
     <h3>テンプレート：${esc(tplOf(cur.template).name)}　<button class="mini" data-act="toTpl">変更する</button></h3>
     <h3>画像</h3>
     <div class="cnt">画像の枚数 <button data-act="imgMinus" title="減らす">−</button><b>${imgs.length}</b>枚 <button data-act="imgPlus" title="増やす">＋</button></div>
@@ -3046,13 +3376,13 @@ function renderContent() {
         <div class="iinfo"><input class="lbl" data-lbl value="${esc(e.label)}" title="名前を変更">
           <div class="ibtns"><button class="mini" data-act="pick">${ok ? '画像を変更' : '画像を選ぶ'}</button>${ok ? '<button class="mini" data-act="clear">外す</button>' : ''}<button class="mini danger" data-act="delimg">枠ごと削除</button></div></div>
       </div>`; }).join('') || '<p class="tip">画像はありません。「＋」で追加できます。</p>'}</div>
-    <p class="tip">配置・大きさ・トリミング・形・色合いは「⑤ 詳細な編集とレイアウト」で調整できます。<br><b>パソコンの画像やネット上の画像を、そのままドラッグ＆ドロップ</b>しても入れられます（画像の枠の上に落とすと差し替え）。コピーした画像は <span class="kbd">Ctrl</span><span class="kbd">V</span> で貼り付けもできます。</p>
+    <p class="tip">配置・大きさ・トリミング・形・色合いは「⑥ 詳細な編集とレイアウト」で調整できます。<br><b>パソコンの画像やネット上の画像を、そのままドラッグ＆ドロップ</b>しても入れられます（画像の枠の上に落とすと差し替え）。コピーした画像は <span class="kbd">Ctrl</span><span class="kbd">V</span> で貼り付けもできます。</p>
     <h3>文字</h3>
     ${texts.map(e => `<div class="fld" data-id="${e.id}"><div class="fl"><input class="lbl" data-lbl value="${esc(e.label)}" title="名前を変更"><button class="mini danger" data-act="deltext">削除</button></div>
       <textarea data-txt rows="${Math.min(6, Math.max(2, (e.text.match(/\n/g) || []).length + 1))}">${esc(e.text)}</textarea></div>`).join('')}
     <button class="btn" data-act="addtext">＋ 文字枠を追加</button>
-    <p class="tip">文章は見本です。教室の内容に合わせて書き換えてください。文字の位置・フォント・太字・下線・ふち・影などは「⑤ 詳細な編集とレイアウト」で変更できます。</p>
-    <div class="next"><button class="btn primary" data-act="toLayout">⑤ 詳細な編集とレイアウトへ →</button></div>`;
+    <p class="tip">文章は見本です。教室の内容に合わせて書き換えてください。文字の位置・フォント・太字・下線・ふち・影などは「⑥ 詳細な編集とレイアウト」で変更できます。</p>
+    <div class="next">${isPhone() ? '<button class="btn" data-act="toLayout">パソコン用の編集画面を開く</button>' : '<button class="btn primary" data-act="toLayout">⑥ 詳細な編集とレイアウトへ →</button>'}</div>`;
 }
 function mountPreview() { mount($('#cprev'), cur, 'preview'); }
 
@@ -3088,8 +3418,8 @@ function renderBgs() {
     <h3>枠（シンプル〜おしゃれ）</h3>
     <div class="swgrid">${frameSwatches(p)}</div>
     ${p.frame !== 'none' ? `<div class="cprow">${P.col('pg_frameColor', '枠の色', p.frameColor)}${NEEDS_C2.includes(p.frame) ? P.col('pg_frameColor2', '枠の色2', p.frameColor2) : ''}</div>` : ''}
-    <p class="tip">模様と枠の色は、次の「④ 色」で配色を選ぶと自動で合わせて変わります。</p>
-    <div class="next"><button class="btn primary" data-act="toColors">④ 色を選ぶ →</button></div>`;
+    <p class="tip">模様と枠の色は、次の「⑤ 色」で配色を選ぶと自動で合わせて変わります。</p>
+    <div class="next"><button class="btn" data-act="toEasy">← ③ かんたん入力に戻る</button><button class="btn primary" data-act="toColors">⑤ 色を選ぶ →</button></div>`;
   mount($('#bgprev'), cur, 'thumb'); bgOutline();
 }
 function bgOutline() {
@@ -3105,7 +3435,7 @@ bgform.addEventListener('click', ev => {
   if (pt) { setPattern(cur.page, pt.dataset.pat); commit(); renderBgs(); return; }
   const fr = ev.target.closest('[data-frame]');
   if (fr) { setFrame(cur.page, fr.dataset.frame); commit(); renderBgs(); return; }
-  const a = ev.target.closest('[data-act]'); if (a && a.dataset.act === 'toColors') go('colors'); if (a && a.dataset.act === 'toTpl') go('templates');
+  const a = ev.target.closest('[data-act]'); if (a && a.dataset.act === 'toColors') go('colors'); if (a && a.dataset.act === 'toTpl') go('templates'); if (a && a.dataset.act === 'toEasy') go('easy');
 });
 bgform.addEventListener('input', ev => {
   if (areaInput(ev.target)) { mount($('#bgprev'), cur, 'thumb'); bgOutline(); softCommit(); return; }
@@ -3125,8 +3455,8 @@ function renderColors() {
     <h3>今の色（テンプレート：${esc(tplOf(cur.template).name)}）　<button class="mini" data-act="toTpl">テンプレートを変える</button></h3>
     <div class="palgrid">${palCard({ id:'orig', name:'今の色のまま', c:null })}</div>
     ${Object.entries(PAL_GROUPS).map(([g, t]) => `<h3>${t}</h3><div class="palgrid">${PALETTES.filter(pl => pl.g === g).map(palCard).join('')}</div>`).join('')}
-    <p class="tip">テンプレートで使われている色（背景の模様・枠も含む）を、選んだ組み合わせに置き換えます。1か所ずつの色は「⑤ 詳細な編集とレイアウト」で変えられます。</p>
-    <div class="next"><button class="btn primary" data-act="toContent">⑤ 詳細な編集とレイアウトへ →</button></div>`;
+    <p class="tip">テンプレートで使われている色（背景の模様・枠も含む）を、選んだ組み合わせに置き換えます。1か所ずつの色は「⑥ 詳細な編集とレイアウト」で変えられます。</p>
+    <div class="next"><button class="btn" data-act="toEasy">← ③ かんたん入力に戻る</button><button class="btn primary" data-act="toContent">⑥ 詳細な編集とレイアウトへ →</button></div>`;
   f.querySelectorAll('.palcard').forEach(b => {
     const pl = PALETTES.find(x => x.id === b.dataset.pal);
     const r = pl ? applyPalette(colorBase, pl) : colorBase;
@@ -3144,7 +3474,7 @@ colform.addEventListener('click', ev => {
     cur.page = r.page; cur.elements = r.elements; commit();
     f_markPal(); mount($('#colprev'), cur, 'thumb'); return;
   }
-  const a = ev.target.closest('[data-act]'); if (a && a.dataset.act === 'toContent') go('content'); if (a && a.dataset.act === 'toTpl') go('templates');
+  const a = ev.target.closest('[data-act]'); if (a && a.dataset.act === 'toContent') go('layout'); if (a && a.dataset.act === 'toTpl') go('templates'); if (a && a.dataset.act === 'toEasy') go('easy');
 });
 function f_markPal() { colform.querySelectorAll('.palcard').forEach(b => b.classList.toggle('on', b.dataset.pal === palSel)); }
 
@@ -3152,14 +3482,16 @@ const cform = $('#cform');
 cform.addEventListener('input', ev => {
   const t = ev.target, box = t.closest('[data-id]'); if (!box) return;
   const e = byId(box.dataset.id); if (!e) return;
-  if (t.hasAttribute('data-txt')) { e.text = t.value; refreshEl(e); softCommit(); }
+  if (t.hasAttribute('data-txt')) { e.text = t.value; if (EASY_ROLES.includes(e.role)) e.manual = true; refreshEl(e); softCommit(); }
   else if (t.hasAttribute('data-lbl')) { e.label = t.value.slice(0, 40); softCommit(); }
 });
 cform.addEventListener('click', ev => {
   const b = ev.target.closest('[data-act]'); if (!b) return;
   const box = b.closest('[data-id]'), e = box ? byId(box.dataset.id) : null, a = b.dataset.act;
   if (a === 'toTpl') go('templates');
-  else if (a === 'toLayout') go('layout');
+  else if (a === 'toEasy') go('easy');
+  else if (a === 'pdf') $('#bPdf').click();
+  else if (a === 'toLayout') { forceLayout = true; go('layout'); }
   else if (a === 'pick' && e) pickImage(e.id);
   else if (a === 'clear' && e) { e.asset = null; commit(); redraw(); }
   else if (a === 'delimg' && e) { if (!e.asset || confirm(`「${e.label}」を枠ごと削除しますか？`)) removeEl(e.id); }
@@ -3272,6 +3604,7 @@ $('#bUndo').onclick = undo; $('#bRedo').onclick = redo;
 $('#bToColors').onclick = () => go('colors');
 $('#bToBgs').onclick = () => go('bgs');
 $('#bToTpl').onclick = () => go('templates');
+$('#bToEasy').onclick = () => go('easy');
 $('#bPageProps').onclick = () => select(null);
 
 const DIRS = ['nw','n','ne','e','se','s','sw','w'];
@@ -3615,7 +3948,7 @@ async function placeImage(blob, target, pos, offset = 0) {
   const data = await compress(blob), aid = newAid();
   cur.assets[aid] = data;
   let e = target && target.kind === 'image' ? target : null;
-  if (!e && view === 'content') e = imgEls().find(x => !x.asset) || null;
+  if (!e && (view === 'content' || view === 'easy')) e = imgEls().find(x => !x.asset) || null;
   const im = new Image(); await new Promise(r => { im.onload = im.onerror = r; im.src = data; });
   const ratio = im.naturalWidth ? im.naturalHeight / im.naturalWidth : 0.7;
   if (!e) {
@@ -3642,17 +3975,18 @@ async function takeImages(sources, target, pos) {
 }
 async function pasteImage(file) { await takeImages([file], view === 'layout' ? getSel() : null, null); }
 /* ドラッグ＆ドロップ */
-const DROP_VIEWS = ['content', 'layout'];
+const DROP_VIEWS = ['content', 'layout', 'easy'];
 const dragHasImage = dt => dt && [...(dt.types || [])].some(t => t === 'Files' || t === 'text/uri-list' || t === 'text/html');
 let dropHi = null;
 function setDropHi(n) { if (dropHi === n) return; if (dropHi) dropHi.classList.remove('dropon'); dropHi = n; if (n) n.classList.add('dropon'); }
 function dropTargetAt(ev) {
   const t = ev.target;
-  const slot = t.closest && t.closest('.iitem[data-id]'); if (slot) return { node:slot, el:byId(slot.dataset.id) };
-  const n = t.closest && t.closest('#pageHost .el.k-image[data-id], #cprev .el.k-image[data-id]');
+  const slot = t.closest && t.closest('.iitem[data-id], .eph[data-pick]'); if (slot) return { node:slot, el:byId(slot.dataset.id || slot.dataset.pick) };
+  const n = t.closest && t.closest('#pageHost .el.k-image[data-id], #cprev .el.k-image[data-id], #eprev .el.k-image[data-id]');
   if (n) return { node:n, el:byId(n.dataset.id) };
   if (t.closest && t.closest('#stage')) return { node:$('#stage'), el:null, pos:host.contains(t) || t === host ? toMM(ev) : null };
   if (t.closest && t.closest('#cprev, #cform')) return { node:t.closest('#cprev') || $('#cform'), el:null };
+  if (t.closest && t.closest('#eprev, #eform')) return { node:t.closest('#eprev') || $('#eform'), el:null };
   return null;
 }
 document.addEventListener('dragover', ev => {
@@ -3667,7 +4001,7 @@ document.addEventListener('drop', async ev => {
   if (dragId) return;
   if (!dragHasImage(ev.dataTransfer)) return;
   ev.preventDefault(); setDropHi(null);
-  if (!DROP_VIEWS.includes(view)) { toast('画像は「⑤ 詳細な編集とレイアウト」の画面にドロップしてください'); return; }
+  if (!DROP_VIEWS.includes(view)) { toast('画像は「⑥ 詳細な編集とレイアウト」の画面にドロップしてください'); return; }
   const d = dropTargetAt(ev); if (!d) return;
   const dt = ev.dataTransfer;
   let srcs = [...(dt.files || [])].filter(isImageFile);
@@ -3926,6 +4260,7 @@ props.addEventListener('input', ev => {
   let v = t.value;
   if (t.dataset.t === 'num') { v = Number(v); if (!Number.isFinite(v)) return; }
   const before = e[p]; e[p] = v;
+  if (p === 'text' && EASY_ROLES.includes(e.role)) e.manual = true;
   if (p === 'pat') { if (before === 'none' && v !== 'none') e.patColor = hsl(e.bg || '#ffffff')[2] > 0.6 ? mixc(e.bg || '#ffffff', '#000000', 0.12) : mixc(e.bg, '#ffffff', 0.3); refreshEl(e); commit(); renderProps(); return; }
   const out = t.parentElement.querySelector('output'); if (out) out.textContent = v;
   refreshEl(e); softCommit();
@@ -3997,13 +4332,17 @@ function order(e, how) {
 }
 
 /* ================= 保存・呼び出し ================= */
-const nameOf = f => { const t = f.elements.find(e => e.role === 'title') || f.elements.find(e => e.kind === 'text' && e.text && e.role !== 'deco'); return ((t && t.text) || '無題のチラシ').replace(/\s+/g, ' ').trim().slice(0, 40) || '無題のチラシ'; };
+const nameOf = f => { if (f.easy && (f.easy.trial.trim() || f.easy.org.trim())) return [f.easy.trial.trim(), f.easy.org.trim()].filter(Boolean).join('_').replace(/\s+/g, ' ').slice(0, 40); const t = f.elements.find(e => e.role === 'title') || f.elements.find(e => e.kind === 'text' && e.text && e.role !== 'deco'); return ((t && t.text) || '無題のチラシ').replace(/\s+/g, ' ').trim().slice(0, 40) || '無題のチラシ'; };
 const fileName = f => nameOf(f).replace(/[\\/:*?"<>|]/g, '_');
 const newFid = () => 'f' + Date.now().toString(36) + Math.random().toString(36).slice(2, 6);
 function pack(f) {
   const used = new Set(f.elements.filter(e => e.kind === 'image' && e.asset).map(e => e.asset));
   const assets = {}; used.forEach(k => { if (isImg(f.assets[k])) assets[k] = f.assets[k]; });
-  return { v:3, id:f.id, template:f.template, page:JSON.parse(JSON.stringify(f.page)), elements:JSON.parse(JSON.stringify(f.elements)), assets, name:nameOf(f), updatedAt:new Date().toISOString() };
+  const o = { v:3, id:f.id, template:f.template, page:JSON.parse(JSON.stringify(f.page)), elements:JSON.parse(JSON.stringify(f.elements)), assets, name:nameOf(f), updatedAt:new Date().toISOString() };
+  if (f.easy) o.easy = JSON.parse(JSON.stringify(f.easy));
+  if (f.tuned) o.tuned = true;
+  if (f.pdfName) o.pdfName = f.pdfName;
+  return o;
 }
 async function saveCur() {
   commit();
@@ -4020,7 +4359,7 @@ function sanitizeEl(s) {
   if (!s || typeof s !== 'object' || !['text', 'shape', 'image'].includes(s.kind)) return null;
   const e = s.kind === 'image' ? I('', 0, 0, 10, 10) : s.kind === 'shape' ? S(0, 0, 10, 10) : T('', '', 0, 0, 10, 10, '');
   if (typeof s.id === 'string' && /^[\w-]{1,24}$/.test(s.id)) e.id = s.id;
-  e.label = str(s.label, e.label).slice(0, 40); e.role = str(s.role, '').slice(0, 20);
+  e.label = str(s.label, e.label).slice(0, 40); e.role = str(s.role, '').slice(0, 20); if (s.manual === true) e.manual = true;
   e.x = num(s.x, 0, -300, 500); e.y = num(s.y, 0, -300, 500); e.w = num(s.w, 50, 1, 600); e.h = num(s.h, 30, 0.2, 600);
   e.rot = num(s.rot, 0, -360, 360); e.opacity = num(s.opacity, 1, 0, 1); e.locked = !!s.locked;
   if (e.kind === 'image') {
@@ -4053,6 +4392,9 @@ function sanitize(d) {
       pattern:has(PATTERNS, pg.pattern) ? pg.pattern : 'none', patColor:col(pg.patColor, '#dddddd'), accent:col(pg.accent, '#222222'),
       size:has(SIZES, pg.size) ? pg.size : 'A4', frame:has(FRAMES, pg.frame) ? pg.frame : 'none', frameColor:col(pg.frameColor, '#555555'), frameColor2:col(pg.frameColor2, '#ffffff') },
     elements:[], assets:{} };
+  const ez = sanitizeEasy(d.easy); if (ez) f.easy = ez;
+  if (d.tuned === true) f.tuned = true;
+  if (typeof d.pdfName === 'string') f.pdfName = d.pdfName.replace(/[\\/:*?"<>|]/g, '_').slice(0, 80);
   const assets = d.assets && typeof d.assets === 'object' ? d.assets : {}, seen = new Set();
   d.elements.slice(0, 400).forEach(s => {
     const e = sanitizeEl(s); if (!e) return;
@@ -4107,7 +4449,9 @@ async function drawSaved() {
 }
 function openFlyer(d) {
   if (dirty && !confirm('編集中の内容が保存されていません。開いてもよいですか？')) return;
-  cur = sanitize(d); sel = null; resetHist(); dirty = false; fresh = false; go('content');
+  cur = sanitize(d); sel = null; resetHist(); dirty = false; fresh = false;
+  if (cur.easy) { easy = sanitizeEasy(cur.easy); saveEasy(); }
+  go(cur.easy && !cur.tuned ? 'easy' : 'layout');
 }
 $('#bNew').onclick = () => {
   if (dirty && !confirm('編集中の内容が保存されていません。新しく作りますか？')) return;
@@ -4134,7 +4478,7 @@ $('#fileImport').onchange = async ev => {
     let ok = 0;
     for (const d of list) { if (!d.id) d.id = newFid(); try { await DB.put(pack(d)); ok++; } catch (_) {} }
     if (ok) { toast(`${ok}件を読み込みました`); drawSaved(); }
-    else if (list.length) { cur = list[0]; resetHist(); dirty = true; fresh = false; go('content'); toast('読み込みました（ブラウザ内には保存できませんでした）'); }
+    else if (list.length) { cur = list[0]; resetHist(); dirty = true; fresh = false; if (cur.easy) { easy = sanitizeEasy(cur.easy); saveEasy(); } go(cur.easy && !cur.tuned ? 'easy' : 'layout'); toast('読み込みました（ブラウザ内には保存できませんでした）'); }
     else alert('チラシのデータが見つかりませんでした。');
   } catch (err) { alert('読み込めませんでした。チラシメーカーで書き出したファイルか確認してください。'); }
 };
@@ -4206,12 +4550,32 @@ async function exportPdf() {
   const bin = atob(data.split(',')[1]), u = new Uint8Array(bin.length);
   for (let i = 0; i < bin.length; i++) u[i] = bin.charCodeAt(i);
   const blob = jpegPdf(u, canvas.width, canvas.height, z.w, z.h);
+  /* スマホ・タブレットでは、共有ボタンから保存できる画面を出す */
+  if (isTouch()) { pdfDone(blob, pdfFileName() + '.pdf', cur.page.size || 'A4'); return; }
   const a = document.createElement('a');
   a.href = URL.createObjectURL(blob); a.download = pdfFileName() + '.pdf';
   document.body.appendChild(a); a.click(); a.remove();
   setTimeout(() => URL.revokeObjectURL(a.href), 4000);
   toast(`PDF（${cur.page.size || 'A4'}）を保存しました。ダウンロードフォルダをご確認ください`);
 }
+const isTouch = () => matchMedia('(pointer:coarse)').matches || navigator.maxTouchPoints > 1 && matchMedia('(hover:none)').matches;
+let pdfFile = null, pdfUrl = '';
+function pdfDone(blob, name, size) {
+  try { pdfFile = new File([blob], name, { type:'application/pdf' }); } catch (_) { pdfFile = blob; pdfFile.name = name; }
+  if (pdfUrl) URL.revokeObjectURL(pdfUrl);
+  pdfUrl = URL.createObjectURL(blob);
+  let canShare = false; try { canShare = !!(navigator.canShare && navigator.canShare({ files:[pdfFile] })); } catch (_) {}
+  $('#pdfShare').style.display = canShare ? '' : 'none';
+  $('#pdfDoneMsg').textContent = `「${name}」（${size}）ができました。下のボタンから保存してください。`;
+  toast('PDFができました');
+  $('#dlgPdfDone').showModal();
+}
+$('#pdfShare').onclick = async () => {
+  try { await navigator.share({ files:[pdfFile], title:pdfFile.name }); }
+  catch (e) { if (e && e.name !== 'AbortError') toast('共有できませんでした。「PDFを開く／ダウンロード」を試してください'); }
+};
+$('#pdfOpen').onclick = () => { const a = document.createElement('a'); a.href = pdfUrl; a.download = pdfFile ? pdfFile.name : 'チラシ.pdf'; document.body.appendChild(a); a.click(); a.remove(); };
+$('#pdfDoneClose').onclick = () => $('#dlgPdfDone').close();
 function pdfFileName() { return (cur.pdfName || '').trim() || fileName(cur); }
 $('#bPdf').onclick = () => {
   const inp = $('#pdfNameIn'); inp.value = pdfFileName();
